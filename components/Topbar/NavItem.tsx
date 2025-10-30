@@ -1,8 +1,10 @@
+import { navTypes } from "@/utils/Types";
 import Link from "next/link";
 
 interface NavItemProps{
     title: string;
     linkTo: string;
+    name: navTypes | null;
 }
 
 export default function NavItem({
@@ -10,7 +12,10 @@ export default function NavItem({
     linkTo
 }:NavItemProps){
     return(
-        <Link href={linkTo} className={`text-[var(--topBarText)] text-[16px]`}>
+        <Link 
+            href={linkTo} 
+            className={`text-[var(--topBarText)] text-[16px]`}
+        >
             {title}
         </Link>
     )

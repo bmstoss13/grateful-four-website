@@ -1,3 +1,5 @@
+'use client'
+
 import NavItemLayout from "./NavItemLayout";
 import SocialMediaItemLayout from "./SocialMediaItemLayout";
 
