@@ -5,6 +5,7 @@ import SubmitButton from "./SubmitButton";
 import React, { ChangeEvent, useState } from "react";
 import PageTitle from "../PageHeader/PageTitle";
 import FormTextArea from "./FormTextArea";
+import FormCheckbox from "./FormCheckbox";
 
 export default function ContactForm(){
 
@@ -15,6 +16,7 @@ export default function ContactForm(){
         message: '',
         isSubscribed: false,
     })
+    const [canSubmit, setCanSubmit] = useState<Boolean>(false)
 
     //Submit data to AWS DynamoDB - important to keep track of people signed up for newsletter. TODO: determine how to send messages, if any, to email
     const handleSubmit = async(e: React.FormEvent) => {
@@ -46,6 +48,29 @@ export default function ContactForm(){
         const name = target.name;
 
         handleChangeFormField(name, value);
+    }
+
+    //Clear the form by resetting to initial state
+    const handleClearForm = () => {
+        try{
+            setFormData({
+                firstName: '',
+                lastName: '',
+                email: '',
+                message: '',
+                isSubscribed: false,
+            });
+            setCanSubmit(false);           
+        } catch (err) {
+            console.error("Client: error while clearing form data: ", err);
+        }
+    }
+
+    const handleCanSubmit = () => {
+        try{
+        } catch (err) {
+            console.error("Client: error while toggling whether user can submit or not: ", err);
+        }
     }
 
     return(
@@ -86,12 +111,11 @@ export default function ContactForm(){
                 placeholder="e.g. youremail@email.com"
                 onChange={handleInputChange}
             />
-            <span className="flex mr-auto gap-[4px]">
-                <input type="checkbox" name="isSubscribed"/>
-                <p className="text-[14px] text-gray-600">
-                    Keep up to date with latest news?
-                </p>
-            </span>
+            <FormCheckbox 
+                id="contact-form-subscribe"
+                name="isSubscribed"
+                caption="Keep up to date with latest news?"
+            />
             <FormTextArea 
                 id="contact-form-message"
                 title="Message"

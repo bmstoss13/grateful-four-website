@@ -29,7 +29,7 @@ export default function FormLabel({
                         {title}
                     </h3>
                     {isRequired && (
-                        <p className="text-orange-600">
+                        <p className="text-red-500">
                             *
                         </p>
                     )}
@@ -41,7 +41,7 @@ export default function FormLabel({
                 type={type}
                 value={value}
                 onChange={onChange} 
-                className="p-[8px] border-[1px] border-solid border-gray-400"
+                className="p-[8px] border-[1px] border-solid border-gray-400 rounded-lg"
                 placeholder={placeholder}
                 required={isRequired}
             />
