@@ -1,4 +1,5 @@
 import { ChangeEvent } from "react";
+import ErrorMessage from "./ErrorMessage";
 
 interface FormTextAreaProps{
     id: string;
@@ -9,7 +10,8 @@ interface FormTextAreaProps{
     isResizable: boolean;
     value?: string;
     placeholder?: string;
-    onChange: (e: ChangeEvent<HTMLTextAreaElement>) => void;    
+    onChange: (e: ChangeEvent<HTMLTextAreaElement>) => void;  
+    error?: string;  
 }
 
 export default function FormTextArea({
@@ -22,6 +24,7 @@ export default function FormTextArea({
     value,
     placeholder,
     onChange,
+    error
 }:FormTextAreaProps){
     return(
         <div className="flex flex-col w-full text-[18px]">
@@ -46,7 +49,11 @@ export default function FormTextArea({
                 border-[1px] border-solid border-gray-400 rounded-lg`}
                 draggable={isDraggable}
                 required={isRequired}
+                placeholder={placeholder}
             />
+            {error && (
+                <ErrorMessage error={error}/>
+            )}
         </div>
     )
 }

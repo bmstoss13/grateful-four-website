@@ -1,4 +1,5 @@
 import { ChangeEvent } from "react";
+import ErrorMessage from "./ErrorMessage";
 
 interface FormLabelProps{
     id: string;
@@ -9,6 +10,7 @@ interface FormLabelProps{
     value: string;
     placeholder?: string;
     onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+    error?: string;
 }
 
 export default function FormLabel({
@@ -20,6 +22,7 @@ export default function FormLabel({
     value,
     placeholder,
     onChange,
+    error,
 }:FormLabelProps){
     return(
         <div className="flex flex-col w-full text-[18px]">
@@ -45,6 +48,11 @@ export default function FormLabel({
                 placeholder={placeholder}
                 required={isRequired}
             />
+            {error && (
+                <ErrorMessage 
+                    error={error}
+                />
+            )}
         </div>       
     )
 }
