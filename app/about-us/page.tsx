@@ -1,5 +1,6 @@
 'use client'
 
+import PageFooter from "@/components/Footer/PageFooter";
 import PageHeader from "@/components/PageHeader/PageHeader";
 
 export default function AboutUs(){
@@ -9,6 +10,7 @@ export default function AboutUs(){
                 title="About Us"
                 subHeaderText="We are The Grateful Four Gospel Quartet."
             />
+            <PageFooter />
         </div>
     )
 }

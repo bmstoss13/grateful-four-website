@@ -1,5 +1,6 @@
 'use client'
 
+import PageFooter from "@/components/Footer/PageFooter";
 import PageHeader from "@/components/PageHeader/PageHeader";
 
 export default function Home() {
@@ -8,9 +9,7 @@ export default function Home() {
 			<PageHeader
 				title="The Grateful 4 Gospel Quartet"
 			/>
-			<div>
-				Placeholder
-			</div>
+			<PageFooter />
 		</div>
 	);
 }

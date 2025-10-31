@@ -1,22 +1,21 @@
-import SocialMediaItem from "./SocialMediaItem";
+import MediaItem from "./MediaItem";
 
-export default function SocialMediaItemLayout(){
+export default function MediaList(){
     return(
-        <span className={`flex gap-[10px] ml-auto`}>
-            {/* YouTube */}
-            <SocialMediaItem
+        <span className="flex mt-[16px] gap-[6px]">
+            <MediaItem 
                 linkTo="https://www.youtube.com/@russpowell5171" //Placeholder
                 icon="/youtube.svg"
                 altText="YouTube Page"
-                width={24}
-                height={24}
+                width={36}
+                height={36}
             />
-            <SocialMediaItem
+            <MediaItem
                 linkTo="https://www.facebook.com/"
                 icon="/facebook.svg"
                 altText="Facebook Profile"
-                width={24}
-                height={24}
+                width={36}
+                height={36}
             />
         </span>
     )

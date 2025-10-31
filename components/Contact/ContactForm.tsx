@@ -133,7 +133,7 @@ export default function ContactForm(){
             id="contact-form" 
             className="flex flex-col w-[800px] max-w-[98vw]
             justify-center align-center gap-[12px]
-            bg-gray-100 m-auto mt-[80px] p-[20px] rounded-lg shadow-md"
+            bg-gray-100 m-auto mt-[100px] p-[20px] rounded-lg shadow-md"
             onSubmit={handleSubmit}
         >
             <PageTitle title="Contact Us"/>

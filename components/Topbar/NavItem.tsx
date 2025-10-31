@@ -14,7 +14,7 @@ export default function NavItem({
     return(
         <Link 
             href={linkTo} 
-            className={`text-[var(--topBarText)] text-[16px]`}
+            className={`text-[var(--topBarText)] text-[18px]`}
         >
             {title}
         </Link>

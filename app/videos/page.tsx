@@ -6,6 +6,7 @@ import { Video } from "@/utils/Types";
 import { useEffect, useState } from "react";
 
 import axios from "axios";
+import PageFooter from "@/components/Footer/PageFooter";
 export default function VideosPage(){
     const [videoList, setVideoList] = useState<Video[] | null>(null);
 
@@ -33,6 +34,7 @@ export default function VideosPage(){
                     videoList={videoList}
                 />
             )}
+            <PageFooter />
 
         </div>
     )
