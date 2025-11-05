@@ -1,3 +1,9 @@
+export type DynamoVideoItem = {
+    PK: string;
+    SK: string;
+    EntityType: string;
+}
+
 export type Video = {
     id: string;
     title?: string;

@@ -8,6 +8,7 @@ export default function NavItemLayout(){
             <NavItem title="About" linkTo="/about-us" name={null}/>
             <NavItem title="Videos" linkTo="/videos" name={null}/>
             <NavItem title="Contact" linkTo="/contact" name={null}/>
+            <NavItem title="Support" linkTo="/support" name={null}/>
         </div>
     )
 }
