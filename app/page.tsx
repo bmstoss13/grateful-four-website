@@ -8,6 +8,7 @@ export default function Home() {
 		<div>
 			<PageHeader
 				title="The Grateful 4 Gospel Quartet"
+				backgroundImage="/homeBackground.png"
 			/>
 			<PageFooter />
 		</div>

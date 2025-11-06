@@ -1,13 +1,15 @@
 interface PageSubHeaderProps{
     text: string;
+    textColor: string;
 }
 
 export default function PageSubHeader({
-    text
+    text,
+    textColor
 }:PageSubHeaderProps) {
     return(
-        <p className={`text-[16px] text-gray-700`}>
+        <h3 className={`lg:text-3xl md:text-2xl text-xl text-${textColor} [text-shadow:_2px_4px_8px_rgb(0_0_0_/_80%)]`}>
             {text}
-        </p>
+        </h3>
     )
 }

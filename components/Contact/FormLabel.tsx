@@ -25,7 +25,7 @@ export default function FormLabel({
     error,
 }:FormLabelProps){
     return(
-        <div className="flex flex-col w-full text-[18px]">
+        <div className="flex flex-col flex-shrink w-full text-[18px]">
             <label htmlFor={id}>
                 <span className="flex gap-[2px]">
                     <h3 className="font-bold">

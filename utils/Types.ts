@@ -10,6 +10,11 @@ export type Video = {
     uploadedAt?: string;
 }
 
+export type PaginatedVideosResponse = {
+    videos: DynamoVideoItem[];
+    nextPageToken: string | null;
+}
+
 export type FormData = {
     firstName: string;
     lastName: string;

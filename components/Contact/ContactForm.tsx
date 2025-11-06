@@ -9,6 +9,7 @@ import PageTitle from "../PageHeader/PageTitle";
 import FormTextArea from "./FormTextArea";
 import FormCheckbox from "./FormCheckbox";
 import ClearButton from "./ClearButton";
+import ContactUsTitle from "./ContactUsTitle";
 
 export default function ContactForm(){
 
@@ -131,13 +132,14 @@ export default function ContactForm(){
     return(
         <form 
             id="contact-form" 
-            className="flex flex-col w-[800px] max-w-[98vw]
+            className="flex flex-col w-[800px] max-w-[95vw]
             justify-center align-center gap-[12px]
-            bg-gray-100 m-auto mt-[100px] p-[20px] rounded-lg shadow-md"
+            bg-gray-100 m-auto mt-[100px] mb-[30px] p-[20px] rounded-xl shadow-lg
+            fit-"
             onSubmit={handleSubmit}
         >
-            <PageTitle title="Contact Us"/>
-            <span className="flex gap-[10px]">
+            <ContactUsTitle title="Contact Us"/>
+            <span className="flex lg:flex-row md:flex-row sm:flex-row flex-col gap-[10px] justify-center">
                 <FormLabel 
                     id="contact-form-first-name" 
                     type="text" 
