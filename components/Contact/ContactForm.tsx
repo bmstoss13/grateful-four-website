@@ -2,14 +2,14 @@
 
 import { FormData, FormErrors } from "@/utils/Types";
 import FormLabel from "./FormLabel";
-import axios from "axios";
 import SubmitButton from "./SubmitButton";
-import React, { ChangeEvent, useState } from "react";
-import PageTitle from "../PageHeader/PageTitle";
+import React, { ChangeEvent, useState, useEffect } from "react";
 import FormTextArea from "./FormTextArea";
 import FormCheckbox from "./FormCheckbox";
 import ClearButton from "./ClearButton";
 import ContactUsTitle from "./ContactUsTitle";
+import { apiInstance, emailApiInstance } from "@/utils/apiHelper";
+import { toast, Toaster } from "react-hot-toast";
 
 export default function ContactForm(){
 
@@ -28,6 +28,9 @@ export default function ContactForm(){
         isSubscribed: '',
     });
 
+    const[isLoading, setIsLoading] = useState<boolean>(false);
+    const[apiStatus, setApiStatus] = useState<string|null>(null);
+
     // Submit data to AWS DynamoDB - important to keep track of people signed up for newsletter. TODO: determine how to send messages, if any, to email
     const handleSubmit = async(e: React.FormEvent) => {
         e.preventDefault(); //prevent default browser form submission
@@ -39,13 +42,17 @@ export default function ContactForm(){
         }
 
         handleClearErrors();
+        setIsLoading(true);
+        setApiStatus(null);
         try{
-
-            await axios.postForm('/placeholder', formData)
-
+            await emailApiInstance.post('/submit-form', formData)
+            setApiStatus('success')
             handleClearForm();
         } catch (err){
+            setApiStatus('error')
             console.error("Client: error while submitting form data: ", err)
+        } finally {
+            setIsLoading(false);
         }
     }
 
@@ -105,10 +112,10 @@ export default function ContactForm(){
         if (!formData.firstName) {
             errors.firstName = "First name is required.";
         }
-        if (!formData.lastName) {
+        else if (!formData.lastName) {
             errors.lastName = "Last name is required.";
         }
-        if (!formData.email) {
+        else if (!formData.email) {
             errors.email = "Email is required.";
         }
 
@@ -116,8 +123,8 @@ export default function ContactForm(){
             errors.email = "Invalid email format.";
         }
 
-        if (!formData.message) {
-            errors.message = "Message is required.";
+        else if (!formData.message && !formData.isSubscribed) {
+            errors.message = "A message is required unless you are subscribing.";
         }
 
         return errors
@@ -129,6 +136,15 @@ export default function ContactForm(){
         return emailRegex.test(email);
     }
 
+    useEffect(() => {
+        if(apiStatus === 'success') {
+            toast.success('Message sent successfully!')
+        }
+        else if(apiStatus === 'error'){
+            toast.error('Submission failed. Please try again.')
+        }
+    }, [apiStatus])
+
     return(
         <form 
             id="contact-form" 
@@ -137,7 +153,9 @@ export default function ContactForm(){
             bg-gray-100 m-auto mt-[100px] mb-[30px] p-[20px] rounded-xl shadow-lg
             fit-"
             onSubmit={handleSubmit}
+            noValidate
         >
+            <Toaster position="top-right" />
             <ContactUsTitle title="Contact Us"/>
             <span className="flex lg:flex-row md:flex-row sm:flex-row flex-col gap-[10px] justify-center">
                 <FormLabel 
@@ -158,7 +176,7 @@ export default function ContactForm(){
                     isRequired={true}
                     value={formData.lastName}
                     onChange={handleInputChange}
-                    error={formErrors.firstName}
+                    error={formErrors.lastName}
                 />
             </span>
             <FormLabel 
@@ -170,11 +188,14 @@ export default function ContactForm(){
                 value={formData.email}
                 placeholder="e.g. user@email.com"
                 onChange={handleInputChange}
+                error={formErrors.email}
             />
             <FormCheckbox 
                 id="contact-form-subscribe"
                 name="isSubscribed"
                 caption="Keep up to date with latest news?"
+                value={formData.isSubscribed}
+                onChange={handleInputChange}
             />
             <FormTextArea 
                 id="contact-form-message"
@@ -183,14 +204,17 @@ export default function ContactForm(){
                 isRequired={true}
                 isDraggable={false}
                 isResizable={false}
-                value={formData.message}
+                value={formData.message!}
                 onChange={handleInputChange}
+                error={formErrors.message}
             />
             <div className="flex ml-auto gap-[12px]">
                 <ClearButton 
                     onClear={handleClearForm}
                 /> 
-                <SubmitButton/>
+                <SubmitButton
+                    isLoading={isLoading}
+                />
  
             </div>
   

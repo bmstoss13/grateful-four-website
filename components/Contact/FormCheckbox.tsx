@@ -1,13 +1,19 @@
+import { ChangeEvent } from "react";
+
 interface FormCheckboxProps{
     id: string;
     name: string;
     caption: string;
+    value: boolean;
+    onChange: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
 export default function FormCheckbox({
     id,
     name,
     caption,
+    value,
+    onChange
 }:FormCheckboxProps){
     return(
         <label 
@@ -17,7 +23,9 @@ export default function FormCheckbox({
                 id={id} 
                 type="checkbox" 
                 name={name}
+                checked={value}
                 className="cursor-pointer"
+                onChange={onChange}
             />
             <p 
 

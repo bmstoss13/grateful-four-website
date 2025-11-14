@@ -45,8 +45,10 @@ export default function FormTextArea({
                 name={name} 
                 value={value}
                 onChange={onChange} 
-                className={`h-[200px] p-[8px] ${!isResizable ? 'resize-none' : ''} 
-                border-[1px] border-solid border-gray-400 rounded-lg`}
+                className={`h-[200px] p-[8px] outline-none ${!isResizable ? 'resize-none' : ''} 
+                border-[1px] border-solid rounded-lg transition-all ease duration-[0.1s]
+                ${error ? 'border-red-500 focus:ring-red-200' : 'border-gray-400 focus:border-indigo-500 focus:ring-indigo-200'} 
+                focus:ring-2`}
                 draggable={isDraggable}
                 required={isRequired}
                 placeholder={placeholder}

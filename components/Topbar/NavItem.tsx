@@ -17,10 +17,10 @@ const activeColorClasses: {[key: string]: string} = {
 }
 
 const hoverColorClasses: {[key: string]: string} = {
-    'amber-400': 'text-amber-300',
-    'purple-400': 'text-purple-300',
-    'green-400': 'text-green-300',
-    'yellow-200': 'text-yellow-100'
+    'amber-400': 'hover:text-amber-300',
+    'purple-400': 'hover:text-purple-300',
+    'green-400': 'hover:text-green-300',
+    'yellow-200': 'hover:text-yellow-100'
 }
 
 const activeBorderColorClasses: {[key: string]: string} = {
@@ -49,7 +49,7 @@ export default function NavItem({
         "text-[var(--topBarText)]",
         "transition-colors", 
         isActive ? activeClass : '',
-        `hover:${hoverBaseClass}`,
+        hoverBaseClass,
         'ease duration-[0.1s]' 
     ].filter(Boolean).join(" ");
 

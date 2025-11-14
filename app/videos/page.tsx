@@ -26,8 +26,8 @@ const fetchVideos = async (
         const { data } = await apiInstance.get<PaginatedVideosResponse>('/videos',
             {
                 params: {
-                    nextPageToken: pageToken,
-                    limit: 5
+                    limit: 5,
+                    nextPageToken: pageToken,                    
                 }
             }
         )
@@ -48,9 +48,12 @@ const fetchVideos = async (
             } as Video;
         }).filter((video): video is Video => video !== null)
 
+        const newToken = data.nextPageToken;
+        const cleanNewToken = newToken ? decodeURIComponent(newToken) : null;
+        console.log('next token: ', cleanNewToken)
         return {
             videos: reformattedVideos,
-            nextPageToken: data.nextPageToken
+            nextPageToken: cleanNewToken
         }
 
     } catch (err) {

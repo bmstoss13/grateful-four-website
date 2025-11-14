@@ -2,42 +2,25 @@
         {
             "PK": "ORG#GOSPELQUARTET", 
             "EntityType": "VIDEO", 
-            "SK": "VIDEO#JuqrftA7XII"
+            "SK": "VIDEO#znjx4rxOgO8",
+            "publishedAt": "2024-06-05T17:01:32Z"
+
         },
         {
             "PK": "ORG#GOSPELQUARTET", 
             "EntityType": "VIDEO", 
-            "SK": "VIDEO#u6QfIXgjwGQ"
+            "SK": "VIDEO#jUl1pl-lkcI",
+            "publishedAt": "2024-06-05T17:33:16Z"
         },
         {
             "PK": "ORG#GOSPELQUARTET", 
             "EntityType": "VIDEO", 
-            "SK": "VIDEO#KeOiKuzmTtw"
+            "SK": "VIDEO#dZ_qjCQeLSg"
         },
         {
             "PK": "ORG#GOSPELQUARTET", 
             "EntityType": "VIDEO", 
-            "SK": "VIDEO#9wafxM-vA0E"
-        },
-        {
-            "PK": "ORG#GOSPELQUARTET", 
-            "EntityType": "VIDEO", 
-            "SK": "VIDEO#sUXFBQjjkgA"
-        },
-        {
-            "PK": "ORG#GOSPELQUARTET", 
-            "EntityType": "VIDEO", 
-            "SK": "VIDEO#NkBwPmExtv8"
-        },
-        {
-            "PK": "ORG#GOSPELQUARTET", 
-            "EntityType": "VIDEO", 
-            "SK": "VIDEO#WgibpyTp6dY"
-        },
-        {
-            "PK": "ORG#GOSPELQUARTET", 
-            "EntityType": "VIDEO", 
-            "SK": "VIDEO#8GW6sLrK40k"
+            "SK": "VIDEO#ZDefB7_7big"
         },
         {
             "PK": "ORG#GOSPELQUARTET", 
@@ -47,16 +30,21 @@
         {
             "PK": "ORG#GOSPELQUARTET", 
             "EntityType": "VIDEO", 
-            "SK": "VIDEO#jUl1pl-lkcI"
+            "SK": "VIDEO#SQ_ybGvztL4"
         },
         {
             "PK": "ORG#GOSPELQUARTET", 
             "EntityType": "VIDEO", 
-            "SK": "VIDEO#znjx4rxOgO8"
+            "SK": "VIDEO#JuqrftA7XII"
         },
         {
             "PK": "ORG#GOSPELQUARTET", 
             "EntityType": "VIDEO", 
-            "SK": "VIDEO#dZ_qjCQeLSg"
+            "SK": "VIDEO#1RJQpJeWEdo"
+        },
+        {
+            "PK": "ORG#GOSPELQUARTET", 
+            "EntityType": "VIDEO", 
+            "SK": "VIDEO#-udAVKDODl0"
         }
     ]

@@ -19,8 +19,9 @@ export type FormData = {
     firstName: string;
     lastName: string;
     email: string;
-    message: string;
+    message: string | null;
     isSubscribed: boolean;
+    publishedAt?: string; 
 }
 
 export type FormErrors = {
