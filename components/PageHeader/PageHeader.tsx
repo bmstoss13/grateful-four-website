@@ -1,4 +1,5 @@
 import ContactButton from "../Home/ContactButton/ContactButton";
+import DonateButton from "../Support/DonateButton";
 import PageSubHeader from "./PageSubHeader";
 import PageTitle from "./PageTitle";
 
@@ -7,6 +8,7 @@ interface PageHeaderProps{
     subHeaderText?: string;
     backgroundImage?: string;
     isHome?: boolean;
+    isSupport?: boolean;
 }
 
 export default function PageHeader({
@@ -14,6 +16,7 @@ export default function PageHeader({
     subHeaderText,
     backgroundImage,
     isHome,
+    isSupport,
 }: PageHeaderProps) {
     const backgroundStyle = backgroundImage
         ? { backgroundImage: `url(${backgroundImage})` }
@@ -46,7 +49,10 @@ export default function PageHeader({
                 )}
                 {isHome && (
                     <ContactButton />
-                )}            
+                )}  
+                {isSupport && (
+                    <DonateButton/>
+                )}          
 
         </div>
     )

@@ -11,7 +11,8 @@ export default function CardHeader({
 }:CardHeaderProps){
     return(
         <span
-            className="flex gap-0.5"
+            className={`flex gap-0.5 text-lg
+            lg:text-2xl md:${'text-xl m-auto md:m-0'}`}
         >
             <h1
                 className="font-bold"
