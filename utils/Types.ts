@@ -33,3 +33,17 @@ export type FormErrors = {
 }
 
 export type navTypes = ['home', 'about-us', 'videos', 'contact']
+
+export type PicturePositionType = 'Left' | 'Right'
+
+export type PositionType = 'Tenor' | 'Lead' | 'Baritone' | 'Bass'
+
+export type Color = 'Gold' | 'Purple' | 'Green' | 'Yellow'
+
+export type Member = {
+    position: PositionType;
+    imageUrl: string;
+    name: string;
+    text: string;
+    color: Color;
+}

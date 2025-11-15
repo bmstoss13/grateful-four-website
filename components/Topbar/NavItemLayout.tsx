@@ -1,5 +1,4 @@
 import NavItem from "./NavItem";
-import { navTypes } from "@/utils/Types";
 
 export default function NavItemLayout(){
     return(

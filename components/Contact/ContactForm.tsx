@@ -150,8 +150,7 @@ export default function ContactForm(){
             id="contact-form" 
             className="flex flex-col w-[800px] max-w-[95vw]
             justify-center align-center gap-[12px]
-            bg-gray-100 m-auto mt-[100px] mb-[30px] p-[20px] rounded-xl shadow-lg
-            fit-"
+            bg-gray-100 m-auto mt-[100px] mb-[30px] p-[20px] rounded-xl shadow-lg"
             onSubmit={handleSubmit}
             noValidate
         >
